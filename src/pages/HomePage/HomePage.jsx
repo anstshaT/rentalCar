@@ -1,7 +1,10 @@
+import Header from "../../components/Header/Header";
+import s from "./HomePage.module.css";
+
 const HomePage = () => {
   return (
-    <div>
-      <h1>Home page</h1>
+    <div className={s.container}>
+      <Header />
     </div>
   );
 };
