@@ -1,23 +1,12 @@
 import { useNavigate } from "react-router";
 import s from "./HomeBody.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-/* import { fetchBrands } from "../../redux/brandsOps"; */
-import { fetchCars } from "../../redux/carsOps";
 
 const HomeBody = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const cars = useSelector((state) => state.cars);
 
   const clickHandle = () => {
     navigate("/catalog");
   };
-
-  useEffect(() => {
-    dispatch(fetchCars());
-    console.log("Cars", cars);
-  }, [dispatch]);
 
   return (
     <div className={s.div}>

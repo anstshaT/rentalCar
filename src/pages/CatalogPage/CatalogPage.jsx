@@ -1,10 +1,11 @@
+import CarsList from "../../components/CarsList/CarsList";
 import Header from "../../components/Header/Header";
 
 const CatalogPage = () => {
   return (
     <div>
       <Header />
-      <h1>Catalog page</h1>
+      <CarsList />
     </div>
   );
 };

@@ -1,0 +1,38 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  row-gap: 48px;
+  list-style: none;
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+
+.btn {
+  border-radius: 12px;
+  padding: 12px 99px;
+  margin-bottom: 124px;
+
+  font-weight: 500;
+  font-size: 16px;
+
+  background-color: transparent;
+  border: 1px solid var(--button);
+  cursor: pointer;
+  transition: border 250ms linear;
+}
+
+.btn:hover {
+  border: 1px solid var(--button-hover);
+}

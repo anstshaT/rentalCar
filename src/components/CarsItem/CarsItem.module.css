@@ -1,0 +1,74 @@
+.carDiv {
+  width: 276px;
+}
+
+.img {
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.carTitle {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+  padding-right: 11px;
+}
+
+.carName {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.addressAndComp {
+  display: flex;
+
+  gap: 6px;
+}
+
+.typeAndMil {
+  display: flex;
+  gap: 6px;
+}
+
+.infoText {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+
+  display: flex;
+}
+
+.btn {
+  border-radius: 12px;
+  padding: 12px 0;
+  margin-top: 28px;
+  width: 276px;
+
+  font-size: 16px;
+  color: var(--white);
+
+  border: none;
+  background-color: var(--button);
+  cursor: pointer;
+  transition: background-color 250ms linear;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+.line::after {
+  content: url("../../assets/line.svg");
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  margin-left: 6px;
+}
