@@ -1,10 +1,12 @@
 import Header from "../../components/Header/Header";
-import s from "./HomePage.module.css";
+import HomeBody from "../../components/HomeBody/HomeBody";
+/* import s from "./HomePage.module.css"; */
 
 const HomePage = () => {
   return (
-    <div className={s.container}>
+    <div>
       <Header />
+      <HomeBody />
     </div>
   );
 };
