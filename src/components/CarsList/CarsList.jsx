@@ -1,34 +1,29 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCars } from "../../redux/carsOps";
 import CarsItem from "../CarsItem/CarsItem";
 import s from "./CarsList.module.css";
 
-const CarsList = () => {
+const CarsList = ({ carsInfo }) => {
   const dispatch = useDispatch();
-  const cars = useSelector((state) => state.cars);
 
   useEffect(() => {
     dispatch(fetchCars());
   }, [dispatch]);
 
-  const carsInfo = cars?.cars;
-
   if (!Array.isArray(carsInfo)) {
+    console.log("CarsInfo is not array");
     return <div>Loading...</div>;
   }
-  console.log(carsInfo);
 
   return (
     <div className={s.container}>
       <ul className={s.list}>
-        {carsInfo.map((car) => {
-          return (
-            <li key={car.id}>
-              <CarsItem car={car} />
-            </li>
-          );
-        })}
+        {carsInfo.map((car) => (
+          <li key={car.id}>
+            <CarsItem car={car} />
+          </li>
+        ))}
       </ul>
       <button type="button" className={s.btn}>
         Load more

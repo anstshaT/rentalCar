@@ -49,11 +49,8 @@ const CarsItem = ({ car }) => {
       />
       <div className={s.carTitle}>
         <p className={s.carName}>
-          {brand}{" "}
-          <span classname={s.modelSpan} style={{ color: "var(--button)" }}>
-            {model}
-          </span>
-          , {year}
+          {brand} <span style={{ color: "var(--button)" }}>{model}</span>,{" "}
+          {year}
         </p>
         <p className={s.price}>${rentalPrice}</p>
       </div>
