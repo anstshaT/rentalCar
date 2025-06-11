@@ -2,12 +2,96 @@
   padding-top: 164px;
   display: flex;
   gap: 16px;
+  align-items: flex-end;
   justify-content: center;
-  align-items: center;
 }
 
 .span {
   font-weight: 400;
   font-size: 12px;
   color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.selectorsDiv {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.milDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputMilDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputMil {
+  border: none;
+  height: 20px;
+
+  background-color: var(--inputs);
+  padding: 12px 24px;
+
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--main);
+}
+
+.paddingNew {
+  padding: 12px 24px 12px 61px;
+}
+
+.inputMil::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--main);
+}
+
+.milMin {
+  border-radius: 12px 0 0 12px;
+  border-right: 1px solid var(--gray-light);
+}
+
+.milMax {
+  border-radius: 0 12px 12px 0;
+}
+
+.btn {
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--button);
+  border: none;
+  cursor: pointer;
+  transition: background-color 250ms linear;
+
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+.inputText {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--main);
+  position: relative;
+  left: 61px;
+  z-index: 1000;
 }
