@@ -12,7 +12,6 @@ const CarsList = ({ carsInfo, onClick }) => {
   }, [dispatch]);
 
   if (!Array.isArray(carsInfo)) {
-    console.log("CarsInfo is not array");
     return <div>Loading...</div>;
   }
 

@@ -1,0 +1,38 @@
+.carModel {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.modelSpan {
+  font-size: 16px;
+  color: var(--gray);
+}
+
+.carDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.locationMilage {
+  display: flex;
+  gap: 16px;
+}
+
+.location {
+  display: flex;
+}
+
+.price {
+  color: var(--button);
+}
+
+.description {
+  width: 488px;
+}
+
+.img {
+  fill: blue;
+}
