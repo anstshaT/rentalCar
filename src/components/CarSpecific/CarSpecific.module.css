@@ -1,0 +1,15 @@
+.div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.specific {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.title {
+  margin-bottom: 20px;
+}

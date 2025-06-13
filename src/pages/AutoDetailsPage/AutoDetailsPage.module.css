@@ -1,0 +1,25 @@
+.allOtherInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+  margin-top: 68px;
+}
+
+.img {
+  width: 640px;
+  height: 512px;
+  border-radius: 19px;
+}
+
+.content {
+  display: flex;
+  padding-top: 152px;
+  justify-content: space-evenly;
+  margin-bottom: 104px;
+}
+
+.imgAndForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

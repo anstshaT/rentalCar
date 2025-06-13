@@ -1,0 +1,15 @@
+.title {
+  margin-bottom: 20px;
+}
+
+.li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchBrands } from "../../redux/brandsOps";
 import Selectors from "../Selectors/Selectors";
 import s from "./FilterInputs.module.css";
 import clsx from "clsx";
@@ -18,12 +15,6 @@ const FilterInputs = ({
   setSelectedMaxMil,
   onClick,
 }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchBrands());
-  }, [dispatch]);
-
   const chosenBrand = selectedBrands ? selectedBrands : "Choose a brand";
   const chosenPrice = selectedPrice ? `To $${selectedPrice}` : "Choose a price";
   const chosenMinMilage = selectedMinMil && selectedMinMil;

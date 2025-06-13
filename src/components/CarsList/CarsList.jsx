@@ -9,10 +9,14 @@ const CarsList = ({ carsInfo, onClick }) => {
 
   useEffect(() => {
     dispatch(fetchCars());
-  }, [dispatch]);
+  });
 
   if (!Array.isArray(carsInfo)) {
-    return <div>Loading...</div>;
+    return;
+  }
+
+  if (carsInfo.length < 1) {
+    return <div className={s.notFound}>No cars available at the moment</div>;
   }
 
   return (
@@ -24,9 +28,11 @@ const CarsList = ({ carsInfo, onClick }) => {
           </li>
         ))}
       </ul>
-      <button type="button" className={s.btn} onClick={onClick}>
-        Load more
-      </button>
+      {carsInfo.length >= 12 && (
+        <button type="button" className={s.btn} onClick={onClick}>
+          Load more
+        </button>
+      )}
     </div>
   );
 };

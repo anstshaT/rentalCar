@@ -18,10 +18,31 @@ const totalSlice = createSlice({
     brands: [],
     cars: {},
     currentCar: {},
+    filter: {
+      brand: "",
+      rentalPrice: "",
+      minMileage: "",
+      maxMileage: "",
+    },
+    favorites: [],
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setFilters(state, action) {
+      state.filter = { ...state.filter, ...action.payload };
+    },
+    addFavorite(state, action) {
+      if (!state.favorites.find((car) => car.id === action.payload.id)) {
+        state.favorites.push(action.payload);
+      }
+    },
+    remoteFavorite(state, action) {
+      state.favorites = state.favorites.filter(
+        (car) => car.id === action.payload.id
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       /* brands */
@@ -50,4 +71,5 @@ const totalSlice = createSlice({
   },
 });
 
+export const { setFilters, addFavorite, remoteFavorite } = totalSlice.actions;
 export const totalReducer = totalSlice.reducer;

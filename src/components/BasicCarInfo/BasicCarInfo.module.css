@@ -23,6 +23,7 @@
 
 .location {
   display: flex;
+  align-items: baseline;
 }
 
 .price {

@@ -5,7 +5,9 @@ import { fetchCarById } from "../../redux/carsOps";
 import BasicCarInfo from "../../components/BasicCarInfo/BasicCarInfo";
 import RentalCond from "../../components/RentalCond/RentalCond";
 import CarSpecific from "../../components/CarSpecific/CarSpecific";
-import AccessAndFunc from "../../components/AccessAndFunc/AccessAndFunc";
+import s from "./AutoDetailsPage.module.css";
+import Header from "../../components/Header/Header";
+import BookForm from "../../components/BookForm/BookForm";
 
 const AutoDetailsPage = () => {
   const { id } = useParams();
@@ -16,12 +18,48 @@ const AutoDetailsPage = () => {
     dispatch(fetchCarById(id));
   }, [dispatch, id]);
 
+  if (!carDetails) {
+    return;
+  }
+
+  const rentalCond = carDetails.rentalConditions;
+
+  const rentalTitle = "Rental Conditions: ";
+  const accessAndFuncTitle = "Accessories and functionalities:";
+
+  const accessAndFunc = [
+    ...(Array.isArray(carDetails?.accessories) ? carDetails.accessories : []),
+    ...(Array.isArray(carDetails?.functionalities)
+      ? carDetails.functionalities
+      : []),
+  ];
+
   return (
     <div>
-      <BasicCarInfo carDetails={carDetails} id={id} />
-      <RentalCond />
-      <CarSpecific />
-      <AccessAndFunc />
+      <Header />
+      <div className={s.content}>
+        <div className={s.imgAndForm}>
+          <img src={carDetails.img} className={s.img} />
+          <BookForm />
+        </div>
+        <div>
+          <BasicCarInfo
+            brand={carDetails.brand}
+            model={carDetails.model}
+            year={carDetails.year}
+            mileage={carDetails.mileage}
+            rentalPrice={carDetails.rentalPrice}
+            description={carDetails.description}
+            address={carDetails.address}
+            img={carDetails.img}
+          />
+          <div className={s.allOtherInfo}>
+            <RentalCond carDetails={rentalCond} title={rentalTitle} />
+            <CarSpecific carDetails={carDetails} />
+            <RentalCond carDetails={accessAndFunc} title={accessAndFuncTitle} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
