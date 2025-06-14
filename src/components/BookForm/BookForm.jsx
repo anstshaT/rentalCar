@@ -14,13 +14,13 @@ const BookForm = () => {
   };
   const [date, setDate] = useState("");
 
-  const handlerSublit = () => {};
+  const handlerSubmit = () => {};
 
   return (
     <div className={s.formWrapper}>
       <h3 className={s.title}>Book your car now</h3>
       <p className={s.text}>Stay connected! We are always ready to help you.</p>
-      <Formik initialValues={initialValues} onSubmit={handlerSublit}>
+      <Formik initialValues={initialValues} onSubmit={handlerSubmit}>
         <Form className={s.form}>
           <Field
             id="name"
