@@ -4,7 +4,6 @@
 
 .img {
   border-radius: 14px;
-  margin-bottom: 16px;
 }
 
 .carTitle {
@@ -70,4 +69,24 @@
   width: 1px;
   height: 16px;
   margin-left: 6px;
+}
+
+/* Favorite btn */
+
+.favoriteBtn {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  left: 240px;
+  bottom: 255px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  transition: filter 225ms linear;
+}
+
+.favoriteBtn:hover {
+  filter: drop-shadow(0 0 2px var(--button-hover));
 }

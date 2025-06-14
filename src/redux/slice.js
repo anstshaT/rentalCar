@@ -27,7 +27,7 @@ const totalSlice = createSlice({
       minMileage: "",
       maxMileage: "",
     },
-    favorites: [],
+    favorites: JSON.parse(localStorage.getItem("favorites")) || [],
     loading: false,
     error: null,
   },
@@ -42,7 +42,7 @@ const totalSlice = createSlice({
     },
     remoteFavorite(state, action) {
       state.favorites = state.favorites.filter(
-        (car) => car.id === action.payload.id
+        (car) => car.id !== action.payload.id
       );
     },
   },

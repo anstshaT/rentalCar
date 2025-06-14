@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
 import { SyncLoader } from "react-spinners";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
@@ -11,6 +12,12 @@ const AutoDetailsPage = lazy(() =>
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 
 function App() {
+  const favorites = useSelector((state) => state.favorites);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  });
+
   return (
     <>
       <Suspense
