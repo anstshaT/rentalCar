@@ -23,3 +23,9 @@
   flex-direction: column;
   gap: 40px;
 }
+
+.loader {
+  max-width: 100px;
+  margin: 0 auto;
+  padding-top: 200px;
+}

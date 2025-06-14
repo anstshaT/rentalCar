@@ -7,6 +7,8 @@ import { fetchCars } from "../../redux/carsOps";
 import { fetchBrands } from "../../redux/brandsOps";
 import { prices } from "../../utils/prices";
 import { setFilters } from "../../redux/slice";
+import { SyncLoader } from "react-spinners";
+import s from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ const CatalogPage = () => {
   const brands = useSelector((state) => state.brands);
   const filter = useSelector((state) => state.filter);
   const page = useSelector((state) => state.page);
+  const isLoading = useSelector((state) => state.loading);
 
   const [selectedBrands, setSelectedBrands] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
@@ -78,7 +81,13 @@ const CatalogPage = () => {
         setSelectedMaxMil={onMaxMilChange}
         onClick={onSearch}
       />
-      <CarsList carsInfo={cars} onClick={loadMore} />
+      {isLoading ? (
+        <div className={s.loader}>
+          <SyncLoader color="#3470FF" size={20} />
+        </div>
+      ) : (
+        <CarsList carsInfo={cars} onClick={loadMore} />
+      )}
     </div>
   );
 };

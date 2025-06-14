@@ -8,11 +8,13 @@ import CarSpecific from "../../components/CarSpecific/CarSpecific";
 import s from "./AutoDetailsPage.module.css";
 import Header from "../../components/Header/Header";
 import BookForm from "../../components/BookForm/BookForm";
+import { SyncLoader } from "react-spinners";
 
 const AutoDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const carDetails = useSelector((state) => state.currentCar);
+  const isLoading = useSelector((state) => state.loading);
 
   useEffect(() => {
     dispatch(fetchCarById(id));
@@ -37,29 +39,38 @@ const AutoDetailsPage = () => {
   return (
     <div>
       <Header />
-      <div className={s.content}>
-        <div className={s.imgAndForm}>
-          <img src={carDetails.img} className={s.img} />
-          <BookForm />
+      {isLoading ? (
+        <div className={s.loader}>
+          <SyncLoader color="#3470FF" size={20} />
         </div>
-        <div>
-          <BasicCarInfo
-            brand={carDetails.brand}
-            model={carDetails.model}
-            year={carDetails.year}
-            mileage={carDetails.mileage}
-            rentalPrice={carDetails.rentalPrice}
-            description={carDetails.description}
-            address={carDetails.address}
-            img={carDetails.img}
-          />
-          <div className={s.allOtherInfo}>
-            <RentalCond carDetails={rentalCond} title={rentalTitle} />
-            <CarSpecific carDetails={carDetails} />
-            <RentalCond carDetails={accessAndFunc} title={accessAndFuncTitle} />
+      ) : (
+        <div className={s.content}>
+          <div className={s.imgAndForm}>
+            <img src={carDetails.img} className={s.img} />
+            <BookForm />
+          </div>
+          <div>
+            <BasicCarInfo
+              brand={carDetails.brand}
+              model={carDetails.model}
+              year={carDetails.year}
+              mileage={carDetails.mileage}
+              rentalPrice={carDetails.rentalPrice}
+              description={carDetails.description}
+              address={carDetails.address}
+              img={carDetails.img}
+            />
+            <div className={s.allOtherInfo}>
+              <RentalCond carDetails={rentalCond} title={rentalTitle} />
+              <CarSpecific carDetails={carDetails} />
+              <RentalCond
+                carDetails={accessAndFunc}
+                title={accessAndFuncTitle}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
