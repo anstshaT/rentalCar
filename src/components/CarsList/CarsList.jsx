@@ -22,7 +22,7 @@ const CarsList = ({ carsInfo, onClick }) => {
           </li>
         ))}
       </ul>
-      {totalPages >= 1 && (
+      {totalPages > 1 && (
         <button type="button" className={s.btn} onClick={onClick}>
           Load more
         </button>

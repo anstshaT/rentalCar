@@ -61,7 +61,11 @@ const totalSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.cars = action.payload.cars;
+        if (action.meta.arg.page > 1) {
+          state.cars = [...state.cars, ...action.payload.cars];
+        } else {
+          state.cars = action.payload.cars;
+        }
         state.totalCars = action.payload.totalCars;
         state.page = action.payload.page;
         state.totalPages = action.payload.totalPages;

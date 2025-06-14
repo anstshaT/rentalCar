@@ -14,22 +14,20 @@ const CatalogPage = () => {
   const cars = useSelector((state) => state.cars);
   const brands = useSelector((state) => state.brands);
   const filter = useSelector((state) => state.filter);
-  const totalCars = useSelector((state) => state.totalCars);
   const page = useSelector((state) => state.page);
-  const totalPages = useSelector((state) => state.totalPages);
 
   const [selectedBrands, setSelectedBrands] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedMinMil, setSelectedMinMil] = useState("");
   const [selectedMaxMil, setSelectedMaxMil] = useState("");
-  const [allPage, setAllPage] = useState(1);
+  const [allPage, setAllPage] = useState(page);
 
   const priceList = prices();
 
   useEffect(() => {
     dispatch(fetchBrands());
-    dispatch(fetchCars({ filters: filter, page }));
-  }, [dispatch, filter, page]);
+    dispatch(fetchCars({ filters: filter, page: allPage }));
+  }, [dispatch, filter, allPage]);
 
   const onBrandsChange = (brand) => {
     setSelectedBrands(brand.name);
