@@ -1,16 +1,10 @@
-import { useSelector } from "react-redux";
 import CarsItem from "../CarsItem/CarsItem";
 import s from "./CarsList.module.css";
+import { SyncLoader } from "react-spinners";
 
 const CarsList = ({ carsInfo, onClick }) => {
-  const totalPages = useSelector((state) => state.totalPages);
-
   if (!Array.isArray(carsInfo)) {
     return;
-  }
-
-  if (carsInfo.length < 1) {
-    return <div className={s.notFound}>No cars available at the moment</div>;
   }
 
   return (
@@ -22,7 +16,8 @@ const CarsList = ({ carsInfo, onClick }) => {
           </li>
         ))}
       </ul>
-      {totalPages > 1 && (
+
+      {carsInfo.length > 0 && carsInfo.length % 12 === 0 && (
         <button type="button" className={s.btn} onClick={onClick}>
           Load more
         </button>

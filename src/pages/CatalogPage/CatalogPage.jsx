@@ -81,13 +81,15 @@ const CatalogPage = () => {
         setSelectedMaxMil={onMaxMilChange}
         onClick={onSearch}
       />
-      {isLoading ? (
+      {cars.length === 0 && !isLoading && (
+        <div className={s.notFound}>No cars available at the moment</div>
+      )}
+      {isLoading && (
         <div className={s.loader}>
           <SyncLoader color="#3470FF" size={20} />
         </div>
-      ) : (
-        <CarsList carsInfo={cars} onClick={loadMore} />
       )}
+      <CarsList carsInfo={cars} onClick={loadMore} />
     </div>
   );
 };
