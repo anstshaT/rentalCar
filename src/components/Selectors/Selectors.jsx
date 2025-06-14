@@ -4,9 +4,6 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchBrands } from "../../redux/brandsOps";
 import arrowDown from "../../assets/arrow-down.svg";
 import arrowUp from "../../assets/arrow-up.svg";
 import s from "./Selectors.module.css";
@@ -17,12 +14,6 @@ const Selectors = ({
   setSelectedValue,
   chosenValue,
 }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchBrands());
-  }, [dispatch]);
-
   if (!Array.isArray(arrays)) {
     return <div>Loading...</div>;
   }

@@ -16,7 +16,10 @@ const totalSlice = createSlice({
   name: "cars",
   initialState: {
     brands: [],
-    cars: {},
+    cars: [],
+    totalCars: 0,
+    page: 1,
+    totalPages: 1,
     currentCar: {},
     filter: {
       brand: "",
@@ -58,7 +61,10 @@ const totalSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.cars = action.payload;
+        state.cars = action.payload.cars;
+        state.totalCars = action.payload.totalCars;
+        state.page = action.payload.page;
+        state.totalPages = action.payload.totalPages;
       })
       .addCase(fetchCars.rejected, handleRejected)
       /* car by id */
@@ -67,6 +73,9 @@ const totalSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.currentCar = action.payload;
+        state.totalCars = action.payload.totalCars;
+        state.page = action.payload.page;
+        state.totalPages = action.payload.totalPages;
       });
   },
 });

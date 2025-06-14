@@ -2,6 +2,11 @@ import Selectors from "../Selectors/Selectors";
 import s from "./FilterInputs.module.css";
 import clsx from "clsx";
 
+const formatMileage = (value) =>
+  value
+    ? new Intl.NumberFormat("en-US", { useGrouping: true }).format(value)
+    : "";
+
 const FilterInputs = ({
   brands,
   selectedBrands,
@@ -53,24 +58,34 @@ const FilterInputs = ({
           <span className={s.span}>Сar mileage / km</span>
           <div className={s.inputMilDiv}>
             <div>
-              {/* {chosenMinMilage && <span className={s.inputText}>From</span>} */}
               <input
-                type="string"
+                type="text"
                 className={clsx(
                   s.inputMil,
-                  s.milMin,
-                  chosenMinMilage && s.paddingNew
+                  s.milMin
+                  /* chosenMinMilage && s.paddingNew */
                 )}
                 placeholder="From"
-                value={`${chosenMinMilage}`}
-                onChange={(e) => setSelectedMinMil(e.target.value)}
+                value={formatMileage(chosenMinMilage)}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/,/g, "").trim();
+                  if (!isNaN(Number(value))) {
+                    setSelectedMinMil(value);
+                  }
+                }}
               />
             </div>
             <input
-              type="string"
+              type="text"
+              placeholder="To"
               className={clsx(s.inputMil, s.milMax)}
-              value={chosenMaxMilage}
-              onChange={(e) => setSelectedMaxMil(e.target.value)}
+              value={formatMileage(chosenMaxMilage)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/,/g, "").trim();
+                if (!isNaN(Number(value))) {
+                  setSelectedMaxMil(value);
+                }
+              }}
             />
           </div>
         </div>

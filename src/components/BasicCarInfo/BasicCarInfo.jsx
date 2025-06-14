@@ -15,6 +15,8 @@ const BasicCarInfo = ({
 }) => {
   const carId = getCarId(img);
 
+  const formatedMilage = new Intl.NumberFormat("nb-NO").format(mileage);
+
   const { city, country } = getAddress(address);
 
   return (
@@ -29,7 +31,7 @@ const BasicCarInfo = ({
             <img src={location} width={16} height={16} className={s.img} />
             <p className={s.cityCountry}>{`${city}, ${country}`}</p>
           </div>
-          <p className={s.milage}>{`Milage: ${mileage} km`}</p>
+          <p className={s.milage}>{`Milage: ${formatedMilage} km`}</p>
         </div>
 
         <h2 className={s.price}>{`$${rentalPrice}`}</h2>

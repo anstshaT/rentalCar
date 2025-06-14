@@ -1,15 +1,9 @@
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { fetchCars } from "../../redux/carsOps";
+import { useSelector } from "react-redux";
 import CarsItem from "../CarsItem/CarsItem";
 import s from "./CarsList.module.css";
 
 const CarsList = ({ carsInfo, onClick }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCars());
-  });
+  const totalPages = useSelector((state) => state.totalPages);
 
   if (!Array.isArray(carsInfo)) {
     return;
@@ -28,7 +22,7 @@ const CarsList = ({ carsInfo, onClick }) => {
           </li>
         ))}
       </ul>
-      {carsInfo.length >= 12 && (
+      {totalPages >= 1 && (
         <button type="button" className={s.btn} onClick={onClick}>
           Load more
         </button>

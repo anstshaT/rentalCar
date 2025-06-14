@@ -14,62 +14,54 @@ const CatalogPage = () => {
   const cars = useSelector((state) => state.cars);
   const brands = useSelector((state) => state.brands);
   const filter = useSelector((state) => state.filter);
+  const totalCars = useSelector((state) => state.totalCars);
+  const page = useSelector((state) => state.page);
+  const totalPages = useSelector((state) => state.totalPages);
 
   const [selectedBrands, setSelectedBrands] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedMinMil, setSelectedMinMil] = useState("");
   const [selectedMaxMil, setSelectedMaxMil] = useState("");
-  const [page, setPage] = useState(1);
+  const [allPage, setAllPage] = useState(1);
 
   const priceList = prices();
 
   useEffect(() => {
     dispatch(fetchBrands());
-
-    async function fetchAllCars() {
-      try {
-        dispatch(fetchCars({ filters: {}, page }));
-      } catch (error) {
-        console.log("problem", error.message);
-      }
-    }
-
-    fetchAllCars();
+    dispatch(fetchCars({ filters: filter, page }));
   }, [dispatch, filter, page]);
-
-  const carsInfo = cars?.cars;
 
   const onBrandsChange = (brand) => {
     setSelectedBrands(brand.name);
-    setPage(1);
-    dispatch(setFilters({ ...filter, brand: brand.name }));
   };
 
   const onPriceChange = (price) => {
     setSelectedPrice(price.name);
-    setPage(1);
-    dispatch(setFilters({ ...filter, rentalPrice: price.name }));
   };
 
   const onMinMilChange = (milage) => {
     setSelectedMinMil(milage);
-    setPage(1);
-    dispatch(setFilters({ ...filter, minMileage: milage.name }));
   };
 
   const onMaxMilChange = (milage) => {
     setSelectedMaxMil(milage);
-    setPage(1);
-    dispatch(setFilters({ ...filter, maxMileage: milage.name }));
   };
 
   const loadMore = () => {
-    setPage((lastPage) => lastPage + 1);
+    setAllPage((lastPage) => lastPage + 1);
   };
 
   const onSearch = () => {
-    dispatch(fetchCars({ filters: filter, page }));
-    setPage(1);
+    dispatch(
+      setFilters({
+        ...filter,
+        brand: selectedBrands,
+        rentalPrice: selectedPrice,
+        minMileage: selectedMinMil,
+        maxMileage: selectedMaxMil,
+      })
+    );
+    setAllPage(1);
   };
 
   return (
@@ -88,7 +80,7 @@ const CatalogPage = () => {
         setSelectedMaxMil={onMaxMilChange}
         onClick={onSearch}
       />
-      <CarsList carsInfo={carsInfo} onClick={loadMore} />
+      <CarsList carsInfo={cars} onClick={loadMore} />
     </div>
   );
 };
