@@ -23,6 +23,10 @@
   background-color: var(--badges);
 }
 
+.listBoxBtn:focus {
+  outline: none;
+}
+
 .opts {
   border: 1px solid var(--inputs);
   border-radius: 12px;
@@ -34,6 +38,10 @@
   padding-bottom: 14px;
   background-color: var(--white);
   box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+}
+
+.opts:focus {
+  outline: none;
 }
 
 .opt {
