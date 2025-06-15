@@ -13,10 +13,12 @@ const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 
 function App() {
   const favorites = useSelector((state) => state.favorites);
+  const reservations = useSelector((state) => state.reservations);
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+    localStorage.setItem("reservations", JSON.stringify(reservations));
+  }, [favorites, reservations]);
 
   return (
     <>

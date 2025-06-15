@@ -28,7 +28,7 @@ const totalSlice = createSlice({
       maxMileage: "",
     },
     favorites: JSON.parse(localStorage.getItem("favorites")) || [],
-    reservations: [],
+    reservations: JSON.parse(localStorage.getItem("reservations")) || [],
     loading: false,
     error: null,
   },
