@@ -48,6 +48,8 @@ const BookForm = ({ carId }) => {
       resetForm();
       toast.success(`Successfully booked a car on ${formatedDate}`);
     } catch (e) {
+      console.log("Error in reservation", e.message);
+
       toast.error("Car is not available on this day");
     }
   };
