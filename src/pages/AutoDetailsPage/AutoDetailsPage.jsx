@@ -9,6 +9,7 @@ import s from "./AutoDetailsPage.module.css";
 import Header from "../../components/Header/Header";
 import BookForm from "../../components/BookForm/BookForm";
 import { SyncLoader } from "react-spinners";
+import { Toaster } from "react-hot-toast";
 
 const AutoDetailsPage = () => {
   const { id } = useParams();
@@ -76,6 +77,7 @@ const AutoDetailsPage = () => {
           </div>
         </div>
       )}
+      <Toaster position="top-center" />
     </div>
   );
 };
