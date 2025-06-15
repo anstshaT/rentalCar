@@ -1,4 +1,4 @@
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
 import DatePicker from "react-datepicker";
 import "./custom-calendar.css";
 import clsx from "clsx";
@@ -27,6 +27,9 @@ const BookForm = ({ carId }) => {
       .required("Required field")
       .email("Invalid email address"),
     bookingDate: Yup.date().required("Required field"),
+    comment: Yup.string()
+      .min(3, "Must be at least 3 characters")
+      .max(150, "Not more than 150 characters"),
   });
 
   const handlerSubmit = (values, { resetForm }) => {
@@ -53,40 +56,65 @@ const BookForm = ({ carId }) => {
     <div className={s.formWrapper}>
       <h3 className={s.title}>Book your car now</h3>
       <p className={s.text}>Stay connected! We are always ready to help you.</p>
-      <Formik initialValues={initialValues} onSubmit={handlerSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handlerSubmit}
+        validationSchema={validationSchema}
+      >
         {({ setFieldValue, values }) => (
           <Form className={s.form}>
-            <Field
-              id="name"
-              name="name"
-              placeholder="Name*"
-              className={s.field}
-            />
-            <Field
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Email*"
-              className={s.field}
-            />
+            <div className={s.fieldWrapper}>
+              <Field
+                id="name"
+                name="name"
+                placeholder="Name*"
+                className={s.field}
+              />
+              <ErrorMessage name="name" component="span" className={s.error} />
+            </div>
+            <div className={s.fieldWrapper}>
+              <Field
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Email*"
+                className={s.field}
+              />
+              <ErrorMessage name="email" component="span" className={s.error} />
+            </div>
 
-            <DatePicker
-              selected={values.bookingDate}
-              onChange={(date) => setFieldValue("bookingDate", date)}
-              placeholderText="Booking date"
-              className={s.field}
-              calendarClassName={s.customCalendar}
-              dateFormat="dd.MM.yyyy"
-              minDate={new Date()}
-              maxDate={addMonths(new Date(), 3)}
-              showDisabledMonthNavigation
-            />
-            <Field
-              id="comment"
-              name="comment"
-              placeholder="Comment"
-              className={clsx(s.field, s.comment)}
-            />
+            <div className={s.fieldWrapper}>
+              <DatePicker
+                selected={values.bookingDate}
+                onChange={(date) => setFieldValue("bookingDate", date)}
+                placeholderText="Booking date"
+                className={s.field}
+                calendarClassName={s.customCalendar}
+                dateFormat="dd.MM.yyyy"
+                minDate={new Date()}
+                maxDate={addMonths(new Date(), 3)}
+                showDisabledMonthNavigation
+                name="bookingDate"
+              />
+              <ErrorMessage
+                name="bookingDate"
+                component="span"
+                className={s.error}
+              />
+            </div>
+            <div className={s.fieldWrapper}>
+              <Field
+                id="comment"
+                name="comment"
+                placeholder="Comment"
+                className={clsx(s.field, s.comment)}
+              />
+              <ErrorMessage
+                name="comment"
+                component="span"
+                className={s.error}
+              />
+            </div>
 
             <button type="submit" className={s.btn}>
               Send

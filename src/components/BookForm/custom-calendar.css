@@ -47,8 +47,8 @@
   stroke: #3470ff;
 }
 .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
-  fill: #f0f0f0;
-  color: #f0f0f0;
+  fill: #ffffff;
+  color: #ffffff;
 }
 .react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle {
   fill: #fff;
@@ -515,9 +515,9 @@ h2.react-datepicker__current-month {
 .react-datepicker__month-text--keyboard-selected,
 .react-datepicker__quarter-text--keyboard-selected,
 .react-datepicker__year-text--keyboard-selected {
-  border-radius: 0.3rem;
-  background-color: rgb(186.25, 217.0833333333, 241.25);
-  color: rgb(0, 0, 0);
+  border-radius: 32px;
+  background-color: #3470ff;
+  color: #ffffff;
 }
 .react-datepicker__day--keyboard-selected:not([aria-disabled="true"]):hover,
 .react-datepicker__month-text--keyboard-selected:not(

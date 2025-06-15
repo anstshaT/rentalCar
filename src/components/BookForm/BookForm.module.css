@@ -69,32 +69,12 @@
   padding: 14px 20px 50px 20px;
 }
 
-/* Calendar */
-
-.customCalendar {
-  font-family: "Inter", sans-serif;
-  color: var(--main);
-  border-bottom: 1px solid #3470ff;
-  border-radius: 8px;
+.error {
+  font-size: 12px;
+  color: #b20202;
 }
 
-.react-datepicker__header {
-  background-color: var(--primary);
-  border-bottom: 1px solid var(--button);
-  color: var(--white);
-}
-
-.customCalendar .react-datepicker__day {
-  border-radius: 50%;
-  color: var(--text-color);
-}
-
-.customCalendar .react-datepicker__day--selected {
-  background-color: var(--button);
-  color: var(--white);
-}
-
-.customCalendar .react-datepicker__day:hover {
-  background-color: var(--hover);
-  color: var(--white);
+.fieldWrapper {
+  display: flex;
+  flex-direction: column;
 }
