@@ -44,12 +44,6 @@
   font-size: 16px;
 }
 
-.calendarClassName {
-  padding: 14px 20px;
-  width: 576px;
-  margin: 0;
-}
-
 .btn {
   width: 156px;
   padding: 12px 51px;
@@ -77,12 +71,30 @@
 
 /* Calendar */
 
-.react-datepicker__month-container {
-  background-color: var(--white);
-  border: 1px solid var(--button);
-  border-radius: 6px;
+.customCalendar {
+  font-family: "Inter", sans-serif;
+  color: var(--main);
+  border-bottom: 1px solid #3470ff;
+  border-radius: 8px;
 }
 
 .react-datepicker__header {
-  background-color: var(--white);
+  background-color: var(--primary);
+  border-bottom: 1px solid var(--button);
+  color: var(--white);
+}
+
+.customCalendar .react-datepicker__day {
+  border-radius: 50%;
+  color: var(--text-color);
+}
+
+.customCalendar .react-datepicker__day--selected {
+  background-color: var(--button);
+  color: var(--white);
+}
+
+.customCalendar .react-datepicker__day:hover {
+  background-color: var(--hover);
+  color: var(--white);
 }

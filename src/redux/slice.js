@@ -28,6 +28,7 @@ const totalSlice = createSlice({
       maxMileage: "",
     },
     favorites: JSON.parse(localStorage.getItem("favorites")) || [],
+    reservations: [],
     loading: false,
     error: null,
   },
@@ -44,6 +45,19 @@ const totalSlice = createSlice({
       state.favorites = state.favorites.filter(
         (car) => car.id !== action.payload.id
       );
+    },
+    addReservation(state, action) {
+      const { carId, bookingDate } = action.payload;
+
+      const isCarReserved = state.reservations.some(
+        (reserv) => reserv.carId === carId && reserv.bookingDate === bookingDate
+      );
+
+      if (isCarReserved) {
+        throw new Error("Car is not avaible on this day");
+      }
+
+      state.reservations.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -84,5 +98,6 @@ const totalSlice = createSlice({
   },
 });
 
-export const { setFilters, addFavorite, remoteFavorite } = totalSlice.actions;
+export const { setFilters, addFavorite, remoteFavorite, addReservation } =
+  totalSlice.actions;
 export const totalReducer = totalSlice.reducer;

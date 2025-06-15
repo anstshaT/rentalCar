@@ -47,7 +47,7 @@ const AutoDetailsPage = () => {
         <div className={s.content}>
           <div className={s.imgAndForm}>
             <img src={carDetails.img} className={s.img} />
-            <BookForm />
+            <BookForm carId={id} />
           </div>
           <div>
             <BasicCarInfo
