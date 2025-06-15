@@ -29,3 +29,83 @@
   margin: 0 auto;
   padding-top: 200px;
 }
+
+.formMinTab {
+  display: none;
+}
+
+.formMaxDesk {
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1190px) {
+  .img {
+    width: 600px;
+    height: 512px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 152px;
+    justify-content: space-evenly;
+    margin-bottom: 104px;
+  }
+
+  .formMaxDesk {
+    display: none;
+  }
+
+  .formMinTab {
+    display: block;
+  }
+
+  .infoOfCar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .allOtherInfo {
+    gap: 50px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .img {
+    width: 350px;
+    height: 280px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    justify-content: space-evenly;
+    margin-bottom: 80px;
+  }
+
+  .formMaxDesk {
+    display: none;
+  }
+
+  .formMinTab {
+    display: block;
+  }
+
+  .infoOfCar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .allOtherInfo {
+    gap: 30px;
+    margin-top: 20px;
+  }
+}

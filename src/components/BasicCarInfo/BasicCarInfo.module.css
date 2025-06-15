@@ -37,3 +37,16 @@
 .img {
   fill: blue;
 }
+
+@media (min-width: 768px) and (max-width: 1190px) {
+}
+
+@media (max-width: 768px) {
+  .carDetails {
+    margin-bottom: 20px;
+  }
+
+  .description {
+    width: 350px;
+  }
+}

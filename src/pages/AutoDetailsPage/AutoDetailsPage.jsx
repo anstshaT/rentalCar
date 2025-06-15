@@ -47,9 +47,11 @@ const AutoDetailsPage = () => {
         <div className={s.content}>
           <div className={s.imgAndForm}>
             <img src={carDetails.img} className={s.img} />
-            <BookForm carId={id} />
+            <div className={s.formMaxDesk}>
+              <BookForm carId={id} />
+            </div>
           </div>
-          <div>
+          <div className={s.infoOfCar}>
             <BasicCarInfo
               brand={carDetails.brand}
               model={carDetails.model}
@@ -68,6 +70,9 @@ const AutoDetailsPage = () => {
                 title={accessAndFuncTitle}
               />
             </div>
+          </div>
+          <div className={s.formMinTab}>
+            <BookForm carId={id} />
           </div>
         </div>
       )}

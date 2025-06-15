@@ -57,3 +57,18 @@
 .opt:hover {
   color: var(--main);
 }
+
+@media (min-width: 768px) and (max-width: 1190px) {
+  .listBoxBtn {
+    width: 180px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .listBoxBtn {
+    width: 160px;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}

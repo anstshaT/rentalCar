@@ -31,62 +31,64 @@ const FilterInputs = ({
   }));
 
   return (
-    <div>
+    <div className={s.wrapper}>
       <div className={s.div}>
-        <div className={s.selectorsDiv}>
-          <div>
-            <span className={s.span}>Car brand</span>
-            <Selectors
-              arrays={options}
-              selectedValue={selectedBrands}
-              setSelectedValue={setSelectedBrands}
-              chosenValue={chosenBrand}
-            />
-          </div>
-          <div>
-            <span className={s.span}>Price/ 1 hour</span>
-            <Selectors
-              arrays={prices}
-              selectedValue={selectedPrice}
-              setSelectedValue={setSelectedPrice}
-              chosenValue={chosenPrice}
-            />
-          </div>
-        </div>
-
-        <div className={s.milDiv}>
-          <span className={s.span}>Сar mileage / km</span>
-          <div className={s.inputMilDiv}>
+        <div className={s.inputsWrapper}>
+          <div className={s.selectorsDiv}>
             <div>
+              <span className={s.span}>Car brand</span>
+              <Selectors
+                arrays={options}
+                selectedValue={selectedBrands}
+                setSelectedValue={setSelectedBrands}
+                chosenValue={chosenBrand}
+              />
+            </div>
+            <div>
+              <span className={s.span}>Price/ 1 hour</span>
+              <Selectors
+                arrays={prices}
+                selectedValue={selectedPrice}
+                setSelectedValue={setSelectedPrice}
+                chosenValue={chosenPrice}
+              />
+            </div>
+          </div>
+
+          <div className={s.milDiv}>
+            <span className={s.span}>Сar mileage / km</span>
+            <div className={s.inputMilDiv}>
+              <div>
+                <input
+                  type="text"
+                  className={clsx(
+                    s.inputMil,
+                    s.milMin
+                    /* chosenMinMilage && s.paddingNew */
+                  )}
+                  placeholder="From"
+                  value={formatMileage(chosenMinMilage)}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/,/g, "").trim();
+                    if (!isNaN(Number(value))) {
+                      setSelectedMinMil(value);
+                    }
+                  }}
+                />
+              </div>
               <input
                 type="text"
-                className={clsx(
-                  s.inputMil,
-                  s.milMin
-                  /* chosenMinMilage && s.paddingNew */
-                )}
-                placeholder="From"
-                value={formatMileage(chosenMinMilage)}
+                placeholder="To"
+                className={clsx(s.inputMil, s.milMax)}
+                value={formatMileage(chosenMaxMilage)}
                 onChange={(e) => {
                   const value = e.target.value.replace(/,/g, "").trim();
                   if (!isNaN(Number(value))) {
-                    setSelectedMinMil(value);
+                    setSelectedMaxMil(value);
                   }
                 }}
               />
             </div>
-            <input
-              type="text"
-              placeholder="To"
-              className={clsx(s.inputMil, s.milMax)}
-              value={formatMileage(chosenMaxMilage)}
-              onChange={(e) => {
-                const value = e.target.value.replace(/,/g, "").trim();
-                if (!isNaN(Number(value))) {
-                  setSelectedMaxMil(value);
-                }
-              }}
-            />
           </div>
         </div>
         <button type="submit" className={s.btn} onClick={onClick}>

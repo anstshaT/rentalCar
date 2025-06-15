@@ -3,3 +3,9 @@
   margin: 0 auto;
   margin-top: 40px;
 }
+
+@media (max-width: 768px) {
+  .loader {
+    margin-top: 20px;
+  }
+}
