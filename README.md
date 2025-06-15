@@ -1,12 +1,28 @@
-# React + Vite
+# Rental Car
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RentalCar is a website designed for daily car rentals. The main pages of the site include:
 
-Currently, two official plugins are available:
+Home Page
+The home page features welcome messages and basic information about the site's services.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Car Catalog
+This page displays a list of available cars for rent. Users can browse all the available vehicles and apply filters to find the car that best suits their needs.
 
-## Expanding the ESLint configuration
+Car Details Page
+This page provides detailed information about the selected car, including specifications, descriptions, and rental price.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Functions
+
+Search Filtering: Users can search for cars based on parameters such as brand, daily rental price, and mileage.
+
+Adding to Favorites: The ability to save favorite cars in a dedicated favorites list.
+
+Booking Form: On the car details page, users can fill out a booking form, providing essential information such as name, contact details, booking date, and additional comments.
+
+## Installation instructions
+
+- Make sure you have Node.js installed (recommended version 16 or later). To check, enter the following command in the terminal: `node -v`
+- Copy the project to a local directory
+- Install dependencies by running the following command in the terminal: `npm install` (or simply: `npm i`)
+- Start the project by running the command: `npm run dev`
+- Open your browser and navigate to: <http://localhost:5173>
