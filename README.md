@@ -3,12 +3,15 @@
 RentalCar is a website designed for daily car rentals. The main pages of the site include:
 
 **Home Page**
+
 The home page features welcome messages and basic information about the site's services.
 
 **Car Catalog**
+
 This page displays a list of available cars for rent. Users can browse all the available vehicles and apply filters to find the car that best suits their needs.
 
 **Car Details Page**
+
 This page provides detailed information about the selected car, including specifications, descriptions, and rental price.
 
 ## Functions
