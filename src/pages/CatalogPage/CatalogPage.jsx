@@ -9,6 +9,7 @@ import { prices } from "../../utils/prices";
 import { setFilters } from "../../redux/slice";
 import { SyncLoader } from "react-spinners";
 import s from "./CatalogPage.module.css";
+import { all } from "axios";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -31,8 +32,8 @@ const CatalogPage = () => {
 
   useEffect(() => {
     dispatch(fetchBrands());
-    dispatch(fetchCars({ filters: filter, page }));
-  }, [dispatch, filter, page]);
+    dispatch(fetchCars({ filters: filter, page: allPage }));
+  }, [dispatch, filter, allPage]);
 
   const onBrandsChange = (brand) => {
     setSelectedBrands(brand.name);
