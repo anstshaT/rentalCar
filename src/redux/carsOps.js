@@ -13,6 +13,8 @@ export const fetchCars = createAsyncThunk(
       if (filters.minMileage) params.minMileage = filters.minMileage;
       if (filters.maxMileage) params.maxMileage = filters.maxMileage;
 
+      console.log("Page", page);
+
       const { data } = await axios.get("/cars", {
         params,
       });

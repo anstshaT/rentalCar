@@ -25,12 +25,14 @@ const CatalogPage = () => {
   const [selectedMaxMil, setSelectedMaxMil] = useState("");
   const [allPage, setAllPage] = useState(page);
 
+  console.log("Page in catalogPage", page);
+
   const priceList = prices();
 
   useEffect(() => {
     dispatch(fetchBrands());
-    dispatch(fetchCars({ filters: filter, page: allPage }));
-  }, [dispatch, filter, allPage]);
+    dispatch(fetchCars({ filters: filter, page }));
+  }, [dispatch, filter, page]);
 
   const onBrandsChange = (brand) => {
     setSelectedBrands(brand.name);
